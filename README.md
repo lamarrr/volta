@@ -11,7 +11,7 @@ Volatile can also be thought of as "Hey compiler, I do not want you to optimize 
 
 ### Quick Example:
         
-        ```cpp
+```cpp
         #include <cinttypes>
 
         uint16_t volatile tick_count = 0U;
@@ -32,7 +32,7 @@ Volatile can also be thought of as "Hey compiler, I do not want you to optimize 
                 };
             };
         }
-        ```
+```
 
 
 In this example TickISR might appear not to be called at all and thus, without `volatile` the compiler might assume `tick_count` never changes before and after main. Since `TickISR` can actually be called by an interrupt request, the `volatile` keyword is needed to prevent the assumption that `tick_count` might not change (remain at 0U). Else, the `PerformTask()` might never execute in this example.
@@ -45,7 +45,7 @@ In this example TickISR might appear not to be called at all and thus, without `
 - Declaring variables as `volatile` is not the initial intention for `volatile`.
         intended use (by C standard) is for pointers only, just as in:
             
-            ```cpp
+```cpp
             #include <cinttypes>
 
             uint16_t tick_count = 0U;
@@ -60,13 +60,13 @@ In this example TickISR might appear not to be called at all and thus, without `
                 // here, we perform a volatile write (increment)
                 (*volatile_tick_count_ptr)++;
             }
-            ```
+```
             
 
 
 ## Example with Volta
         
-        ```cpp
+```cpp
         #include <cinttypes>
 
         #include "volta/volta.h"
@@ -95,7 +95,7 @@ In this example TickISR might appear not to be called at all and thus, without `
                 };
             };
         }
-        ```
+```
         
 ## My Tip
 - Never use the keyword `volatile`
@@ -105,7 +105,7 @@ In this example TickISR might appear not to be called at all and thus, without `
 ## Inspiration
 - This is inspired by <a href="https://twitter.com/jfbastien">JF Bastein's</a> lightning talk at CppCon 2019
 
-<a href="https://www.youtube.com/watch?v=KJW_DLaVXIY"><img src="https://img.youtube.com/vi/KJW_DLaVXIY/0.jpg" width="100%" height="auto"/> </a>
+<a href="https://www.youtube.com/watch?v=KJW_DLaVXIY"><img src="https://img.youtube.com/vi/KJW_DLaVXIY/maxresdefault.jpg" width="100%" height="auto"/> </a>
 
 - Also inspired by Rust's `core::ptr::read_volatile` and `core::ptr::write_volatile`
 
