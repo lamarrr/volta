@@ -109,7 +109,7 @@ In this example TickISR might appear not to be called at all and thus, without `
 ## Inspiration
 - This is inspired by <a href="https://twitter.com/jfbastien">JF Bastein's</a> lightning talk at CppCon 2019
 
-<iframe width="100%" height="auto" src="https://www.youtube.com/embed/KJW_DLaVXIY" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/KJW_DLaVXIY/0.jpg)](https://www.youtube.com/watch?v=KJW_DLaVXIY)
 
 - Also inspired by Rust's `core::ptr::read_volatile` and `core::ptr::write_volatile`
 
