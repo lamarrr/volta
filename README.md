@@ -6,7 +6,7 @@ Simplified Header-only volatile read and write in C++
 ## What is `volatile` ?
 A C and C++ keyword commonly used to suppress compiler optimizations.
 Commonly used when performing memory mapped I/O.
-Volatile can also be thought of as "Hey compiler, I do not want you to optimize whatever I do here"
+Volatile can also be simply thought of as "Hey compiler, I do not want you to optimize whatever I do on this value"
 
 
 ### Quick Common Example:
@@ -35,11 +35,11 @@ Volatile can also be thought of as "Hey compiler, I do not want you to optimize 
 ```
 
 
-In this example TickISR might appear not to be called at all and thus, without `volatile` the compiler might assume `tick_count` never changes before and after main. Since `TickISR` can actually be called by an interrupt request, the `volatile` keyword is needed to prevent the assumption that `tick_count` might not change (remain at 0U). Else, the `PerformTask()` might never execute in this example.
+In this example `TickISR` might appear not to be called at all and thus, without `volatile` the compiler might assume `tick_count` never changes before and after `main`. Since `TickISR` can actually be called by an interrupt request, the `volatile` keyword is needed to prevent the assumption that `tick_count` might not change (remain at 0U). Else, the `PerformTask()` might never execute in this example.
 
 
 
-## What is the problem with `volatile`? 
+## What is the problem with `volatile`? Especially in the example above?
 - The `volatile` keyword is easily misused and often hinders performance and compiler optimizations in the process.
 - It is difficult to tell by just looking at a code whether we are dealing with `volatile` reads and writes or not, especially as the code base grows larger.
 - Declaring variables as `volatile` is not the initial intention for `volatile`.
