@@ -9,7 +9,7 @@ Commonly used when performing memory mapped I/O.
 Volatile can also be thought of as "Hey compiler, I do not want you to optimize whatever I do here"
 
 
-### Quick Example:
+### Quick Error-Prone Example:
         
 ```cpp
         #include <cinttypes>
