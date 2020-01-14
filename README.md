@@ -11,7 +11,7 @@ Volatile can also be thought of as "Hey compiler, I do not want you to optimize 
 
 ### Quick Example:
         
-        ```
+        ```C++
 
         #include <cinttypes>
 
@@ -46,7 +46,7 @@ In this example TickISR might appear not to be called at all and thus, without `
 - Declaring variables as `volatile` is not the initial intention for `volatile`.
         intended use (by C standard) is for pointers only, just as in:
             
-            ```cpp
+            ```C++
             #include <cinttypes>
 
             uint16_t tick_count = 0U;
@@ -68,7 +68,7 @@ In this example TickISR might appear not to be called at all and thus, without `
 
 ## Example with Volta
         
-        ```cpp
+        ```C++
 
         #include <cinttypes>
 
